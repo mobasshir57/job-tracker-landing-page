@@ -1,5 +1,156 @@
+.geist-font {
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+
+}
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+}
+body{
+    max-width: 80%;
+    margin: 0px auto;
+    background-color: #F8FAFC;
+    /* border: 1px red solid; */
+}
+h1{
+    font-size: 32px;
+    font-weight: bold;
+    padding-top: 2rem;
+    margin-bottom: 1.4rem;
+}
+.top-cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.75rem;
+}
+.top-card{
+    /* border: 1px red solid; */
+    width: 32%;
+    padding: 1.4rem;
+    background-color: #FFFFFF;
+}
+.txt{
+    font-size: 14px;
+    font-weight: 500;
+    color: #323B49;
+    margin-bottom: 8px;
+}
+.num{
+     font-size: 24px;
+    font-weight: bold;
+    color: #002C5C;
+}
+.num1{
+    color: #10B981;
+}
+.num2{
+    color: #EF4444;
+}
+
+.h2-section{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.btn{
+    width: 80px;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color:#3B82F6 ;
+    color: #FFFFFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.card{
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.card h3{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    margin-bottom: 4px;
+    color: #002C5C;
+}
+
+.position{
+line-height: 22px;
+color: #64748B;
+/* margin-bottom: 1rem; */
+
+}
+.status{
+    font-size: 14px;
+line-height: 20px;
+color: #64748B;
+margin-bottom: 1rem;
+}
+.application-btn{
+    font-size: 14px;
+line-height: 20px;
+color: #002C5C;
+margin-bottom: 1rem;
+background-color: #EEF4FF;
+padding: 8px 12px;
+border: none;
+border-radius: 4px;
+}
+.details{
+    font-size: 14px;
+line-height: 20px;
+color: #323B49;
+margin-bottom: 1rem;
+}
+.interview-btn{
+    font-size: 14px;
+    font-weight: 600;
+line-height: 20px;
+color: #10B981;
+border: 1px #10B981 solid;
+border-radius: 4px;
+padding: 8px 12px;
+background-color: transparent;
+gap: 8px;
+ cursor: pointer;
+}
+.rejected-btn{
+    font-size: 14px;
+    font-weight: 600;
+line-height: 20px;
+color: #EF4444;
+border: 1px #EF4444 solid ;
+border-radius: 4px;
+padding: 8px 12px;
+background-color: transparent;
+gap: 8px;
+ cursor: pointer;
+}
+
+
+@media screen and (max-width: 570px) {
+    .top-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.75rem;
+}
+.top-card{
+    /* border: 1px red solid; */
+    width: 100%;
+    padding: 1.4rem;
+   margin-bottom: 1rem;
+}
 }
