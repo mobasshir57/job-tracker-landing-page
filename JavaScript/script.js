@@ -98,7 +98,7 @@ mainContainer.addEventListener('click', function (event) {
         const applicationBtn = parentNode.querySelector('.application-btn').innerText;
         const details = parentNode.querySelector('.details').innerText;
         parentNode.querySelector('.application-btn')
-            .innerText = 'Interviewed'
+            .innerText = 'Interview'
 
         const cardInfo = {
             title,
@@ -159,10 +159,6 @@ mainContainer.addEventListener('click', function (event) {
 
 })
 
-// const title = document.getElementsByClassName('title');
-// const position = document.getElementsByClassName('position');
-// const statuss = document.getElementsByClassName('status');
-// const details = document.getElementsByClassName('details');
 
 
 function renderInterview() {
@@ -180,7 +176,7 @@ function renderInterview() {
                     </div>
                     <br>
                     <p class="status">${interview.status}</p>
-                    <button class="application-btn">Interviewed</button>
+                    <button class="application-btn">${interview.applicationBtn}</button>
                     <p class="details">${interview.details}</p>
                     <button class="interview-btn">Interview</button>
                     <button class="rejected-btn">Rejected</button>
@@ -205,7 +201,7 @@ function renderReject() {
                     </div>
                     <br>
                     <p class="status">${reject.status}</p>
-                    <button class="application-btn">Interviewed</button>
+                    <button class="application-btn">${reject.applicationBtn}</button>
                     <p class="details">${reject.details}</p>
                     <button class="interview-btn">Interview</button>
                     <button class="rejected-btn">Rejected</button>
@@ -222,7 +218,6 @@ deleteButtons.forEach(btn => {
         const card = this.closest('.card');
         card.remove();
 
-        // 🔥 Update count after delete
         calculateCount();
     });
 });
