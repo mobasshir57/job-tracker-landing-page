@@ -126,11 +126,20 @@ h1 {
     align-items: center;
     justify-content: space-between;
 }
-.delete{
-    background-color: #f0f2f6;
+.delete button {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+.delete {
+    background-color: #fed7db;
     padding: .5rem;
     border-radius: 50%;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .card h3 {
     font-size: 18px;

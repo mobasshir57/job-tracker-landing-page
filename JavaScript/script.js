@@ -50,16 +50,40 @@ function toggleStyle(id) {
         allCardSection.classList.remove('hidden')
         interviewSection.classList.add('hidden')
         rejectSection.classList.add('hidden')
-    }else if(id == 'interview-btn'){
+
+    } else if (id == 'interview-btn') {
         allCardSection.classList.add('hidden')
         interviewSection.classList.remove('hidden')
         rejectSection.classList.add('hidden')
-        renderInterview();
-    }else if(id == 'rejected-btn'){
+
+        if (interviewList.length === 0) {
+            interviewSection.innerHTML = `
+                <div class="inter-rej">
+                    <img src="./jobs.png" alt="">
+                    <h4>No jobs available</h4>
+                    <p>Check back soon for new job opportunities</p>
+                </div>
+            `;
+        } else {
+            renderInterview();
+        }
+
+    } else if (id == 'rejected-btn') {
         allCardSection.classList.add('hidden')
         interviewSection.classList.add('hidden')
         rejectSection.classList.remove('hidden')
-        renderReject();
+
+        if (rejectList.length === 0) {
+            rejectSection.innerHTML = `
+                <div class="inter-rej">
+                    <img src="./jobs.png" alt="">
+                    <h4>No jobs available</h4>
+                    <p>Check back soon for new job opportunities</p>
+                </div>
+            `;
+        } else {
+            renderReject();
+        }
     }
 }
 
@@ -135,6 +159,12 @@ mainContainer.addEventListener('click', function (event) {
 
 })
 
+// const title = document.getElementsByClassName('title');
+// const position = document.getElementsByClassName('position');
+// const statuss = document.getElementsByClassName('status');
+// const details = document.getElementsByClassName('details');
+
+
 function renderInterview() {
     interviewSection.innerHTML = '';
 
@@ -144,16 +174,14 @@ function renderInterview() {
         div.innerHTML = `
      <div class="card">
                     <div class="first-sec">
-                        <div><h3 class="title">Mobile First Corp</h3>
-                    <p class="position">React Native Developer</p></div>
+                        <div><h3 class="title">${interview.title}</h3>
+                    <p class="position">${interview.position}</p></div>
                     <div class="delete"><a href=""><i class="fa-regular fa-trash-can"></i></a></div>
                     </div>
                     <br>
-                    <p class="status">Remote • Full-time • $130,000 - $175,000</p>
+                    <p class="status">${interview.status}</p>
                     <button class="application-btn">Interviewed</button>
-                    <p class="details">Build cross-platform mobile applications using React Native. Work on products
-                        used by millions of
-                        users worldwide.</p>
+                    <p class="details">${interview.details}</p>
                     <button class="interview-btn">Interview</button>
                     <button class="rejected-btn">Rejected</button>
                 </div>
@@ -169,18 +197,16 @@ function renderReject() {
         console.log(reject);
         let div = document.createElement('div')
         div.innerHTML = `
-     <div class="card">
+    <div class="card">
                     <div class="first-sec">
-                        <div><h3 class="title">Mobile First Corp</h3>
-                    <p class="position">React Native Developer</p></div>
+                        <div><h3 class="title">${reject.title}</h3>
+                    <p class="position">${reject.position}</p></div>
                     <div class="delete"><a href=""><i class="fa-regular fa-trash-can"></i></a></div>
                     </div>
                     <br>
-                    <p class="status">Remote • Full-time • $130,000 - $175,000</p>
-                    <button class="application-btn">Rejected</button>
-                    <p class="details">Build cross-platform mobile applications using React Native. Work on products
-                        used by millions of
-                        users worldwide.</p>
+                    <p class="status">${reject.status}</p>
+                    <button class="application-btn">Interviewed</button>
+                    <p class="details">${reject.details}</p>
                     <button class="interview-btn">Interview</button>
                     <button class="rejected-btn">Rejected</button>
                 </div>
@@ -188,3 +214,15 @@ function renderReject() {
         rejectSection.appendChild(div);
     }
 }
+
+const deleteButtons = document.querySelectorAll('.delete button');
+
+deleteButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+        const card = this.closest('.card');
+        card.remove();
+
+        // 🔥 Update count after delete
+        calculateCount();
+    });
+});
